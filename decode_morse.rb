@@ -11,10 +11,19 @@ def decode_char(char)
 end
 
 def decode_word(word)
-  moris_chars = word.split(' ')
+  moris_chars = word.split
   res = ''
 
-  moris_chars.each { |x| res = res + decode_char(x) }
+  moris_chars.each { |x| res += decode_char(x) }
 
   res
 end
+
+def decode_message(message)
+  res = ''
+  message = message.split('   ')
+  message.each { |x| res += "#{decode_word(x)} " }
+  res
+end
+
+puts decode_message('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...')
